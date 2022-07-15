@@ -1,0 +1,9 @@
+fastapi
+joblib
+numpy
+uvicorn
+opencv-python
+Pillow
+starlette
+tensorflow
+keras
