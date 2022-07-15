@@ -6,4 +6,3 @@ opencv-python
 Pillow
 starlette
 tensorflow
-keras
