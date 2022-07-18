@@ -32,7 +32,7 @@ def read_root():
     return {"message": "Welcome from the API"}
 
 @app.get("/coucou")
-def read_root():
+def read_coucou():
     return {"message": "Coucou"}
 
 @app.post("/score")
