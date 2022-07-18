@@ -31,6 +31,9 @@ app = FastAPI()
 def read_root():
     return {"message": "Welcome from the API"}
 
+@app.get("/coucou")
+def read_root():
+    return {"message": "Coucou"}
 
 @app.post("/score")
 def get_image(file: UploadFile = File(...)):
@@ -45,7 +48,7 @@ def get_image(file: UploadFile = File(...)):
     model = getDeeplabV3(n_classes=8)
 
     # chargement des poids calculés lors de l'entrainement
-    model.load_weights('../weights/DeeplabV3WeightsRUN.h5')
+    model.load_weights('weights/DeeplabV3WeightsRUN.h5')
 
     # On utilise le modèle pour prédire le mask de l'image source
     imagePred = np.argmax(model.predict(image), -1)[0].reshape((512, 512))
