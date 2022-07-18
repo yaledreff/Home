@@ -14,7 +14,7 @@ from PIL import Image
 from fastapi import FastAPI
 from fastapi import File
 from fastapi import UploadFile
-# import cv2
+import cv2
 
 from starlette.responses import StreamingResponse
 #
@@ -27,7 +27,7 @@ app = FastAPI()
 def read_root():
     return {"message": "Welcome from the API"}
 
-    # return StreamingResponse(content=imgio, media_type="image/jpeg")
+
 
 # if __name__ == "__main__":
 #     uvicorn.run("main:app")
