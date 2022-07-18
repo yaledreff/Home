@@ -17,7 +17,7 @@ from fastapi import UploadFile
 import cv2
 
 from starlette.responses import StreamingResponse
-#
+
 from MdeeplabV3 import *
 from utils import *
 
@@ -26,8 +26,6 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return {"message": "Welcome from the API"}
-
-
 
 # if __name__ == "__main__":
 #     uvicorn.run("main:app")
