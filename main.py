@@ -48,7 +48,7 @@ def get_image(file: UploadFile = File(...)):
     model = getDeeplabV3(n_classes=8)
 
     # chargement des poids calculés lors de l'entrainement
-    model.load_weights('weights/DeeplabV3WeightsRUN.h5')
+    model.load_weights('model/DeeplabV3WeightsRUN.h5')
 
     # On utilise le modèle pour prédire le mask de l'image source
     imagePred = np.argmax(model.predict(image), -1)[0].reshape((512, 512))
@@ -70,5 +70,5 @@ def get_image(file: UploadFile = File(...)):
     # return StreamingResponse(content=imgio, media_type="image/jpeg")
 
 
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="localhost", port=8080)
+#if __name__ == "__main__":
+#    uvicorn.run("main:app", host="localhost", port=8080)
