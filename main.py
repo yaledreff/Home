@@ -17,7 +17,6 @@ from fastapi import UploadFile
 import cv2
 
 from starlette.responses import StreamingResponse
-
 from MdeeplabV3 import *
 from utils import *
 
