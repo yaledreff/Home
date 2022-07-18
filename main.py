@@ -29,6 +29,5 @@ def read_root():
 
     # return StreamingResponse(content=imgio, media_type="image/jpeg")
 
-
-#if __name__ == "__main__":
-#    uvicorn.run("main:app", host="localhost", port=8080)
+if __name__ == "__main__":
+    uvicorn.run("main:app")
