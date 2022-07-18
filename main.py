@@ -16,10 +16,10 @@ from fastapi import File
 from fastapi import UploadFile
 # import cv2
 
-# from starlette.responses import StreamingResponse
+from starlette.responses import StreamingResponse
 #
-# from MdeeplabV3 import *
-# from utils import *
+from MdeeplabV3 import *
+from utils import *
 
 app = FastAPI()
 
