@@ -7,10 +7,6 @@ from tensorflow.keras.models import Model, Sequential
 from tensorflow.keras.layers import *
 from keras import backend as K
 
-currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-parentdir = os.path.dirname(currentdir)
-sys.path.insert(0, parentdir)
-
 from model.deeplabv3p import Deeplabv3
 
 def getCoucou():
