@@ -27,13 +27,6 @@ app = FastAPI()
 def read_root():
     return {"message": "Welcome from the API"}
 
-@app.get("/coucou")
-def read_coucou():
-    return {"message": "Coucou"}
-
-
-
-
     # return StreamingResponse(content=imgio, media_type="image/jpeg")
 
 
