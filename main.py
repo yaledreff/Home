@@ -55,5 +55,5 @@ def get_image(file: UploadFile = File(...)):
 
     return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
 
-# if __name__ == "__main__":
-#     uvicorn.run("main:app")
+if __name__ == "__main__":
+    uvicorn.run("main:app")
