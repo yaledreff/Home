@@ -33,7 +33,6 @@ def get_image(file: UploadFile = File(...)):
     imageArray = np.asarray(imageSrc)
     image = cv2.resize(imageArray, (512, 512))
     image = image.reshape((1, 512, 512, 3))
-    print(str(image.shape))
 
     # chargement du modèle de traitement (Deeplab V3) avec tous ses layers
     model = getDeeplabV3(n_classes=8)
@@ -46,13 +45,11 @@ def get_image(file: UploadFile = File(...)):
     # Reconstitution d'une image en RGB pour affectation de couleurs facilement visibles à l'écran
     imagePred3D = np.stack((imagePred, imagePred, imagePred), axis=2)
     imagePredColored = getColoredMask(imagePred3D)
+    imagePredColored = np.array(imagePredColored, dtype='uint8')
 
-    # imgio = io.BytesIO()
-    # image = Image.fromarray(imagePredColored, 'RGB')
-    # image.save(imgio, 'JPEG')
-    # imgio.seek(0)
-    res, im_png = cv2.imencode(".png", imagePredColored)
-
+    imageRes = cv2.resize(imagePredColored, (512, 256), interpolation=cv2.INTER_AREA)
+    # imagePredColored = cv2.resize(imagePredColored, (256, 512), interpolation=cv2.INTER_AREA)
+    res, im_png = cv2.imencode(".png", imageRes)
     return StreamingResponse(io.BytesIO(im_png.tobytes()), media_type="image/png")
 
 if __name__ == "__main__":
