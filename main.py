@@ -39,6 +39,7 @@ def get_boxes(file: UploadFile = File(...)):
     imageSrc = cv2.resize(np.asarray(imageSrc), (512, 512))
     imageMaskRes = cv2.resize(imageMaskRes, (512, 512))
     imageWithBoxes = imageBoxesDbg(imageSrc, imageMaskRes, alpha=0.4)
+    imageWithBoxes = cv2.resize(imageWithBoxes, (512, 256), interpolation=cv2.INTER_AREA)
     return StreamingResponse(getBufferImage(Image.fromarray(imageWithBoxes, 'RGB')), media_type="image/jpeg")
 
 if __name__ == "__main__":
